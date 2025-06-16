@@ -2,44 +2,100 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=3,user-scalable=yes"/>
-  <title>Convite Interativo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Convite Interativo – Padrinhos</title>
+  
+  <!-- Importa o CSS do Swiper -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+  
+  <!-- Filtro SVG para nitidez (aplica efeito sharpen nas imagens) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0">
+    <filter id="sharpen">
+      <feConvolveMatrix order="3 3" kernelMatrix="0 -1 0 -1 5 -1 0 -1 0"/>
+    </filter>
+  </svg>
+  
+  <!-- Nosso CSS -->
   <link rel="stylesheet" href="style.css"/>
+  
+  <!-- JS do Swiper e nosso script -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="script.js" defer></script>
 </head>
 <body>
   <div id="balloons"></div>
 
+  <!-- Áudio de fundo -->
   <audio id="bg-music"
          src="https://cdn.pixabay.com/download/audio/2023/07/18/audio_f12da6e88f.mp3?filename=romantic-piano-123906.mp3"
          loop preload="auto"></audio>
-
-  <img id="capa"
+  
+  <!-- Envelope centralizado (será removido quando clicado) -->
+  <img id="capa" 
        src="https://i.ibb.co/ZpRxVt5n/Copilot-20250616-090014.png"
-       alt="Envelope fechado – toque para abrir"/>
+       alt="Clique para abrir o convite" 
+       onclick="openInvite()"/>
 
+  <!-- Swiper: slider contendo os slides dos padrinhos e demais seções -->
   <div class="swiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="https://i.ibb.co/5WrCP6JT/slide-date.jpg" alt="Matheus e Priscila"/></div>
-      <div class="swiper-slide"><img src="https://i.ibb.co/tMhHgzPL/slide-ceremony.jpg" alt="Data e endereço"/>
-        <a class="btn-map" href="https://maps.app.goo.gl/23YRbAzrMgmEuXTCA" target="_blank">Ver no Maps</a>
+      <!-- 1) Manual dos Padrinhos #1 -->
+      <div class="swiper-slide">
+        <img src="https://i.ibb.co/MFCVxsv/Convite-Quadrado-Manual-dos-Padrinhos-Casamento-Aquarela-Sofisticado-Branco-e-Verde-1.jpg" 
+             alt="Manual dos Padrinhos 1"/>
       </div>
-      <div class="swiper-slide"><img src="https://i.ibb.co/mFgRbj3V/slide-celebration.jpg" alt="Celebração"/>
-        <a class="btn-map" href="https://maps.app.goo.gl/PfLV5FxpyYmEaeTd8" target="_blank">Ver no Maps</a>
+      <!-- 2) Data & Endereço -->
+      <div class="swiper-slide">
+        <img src="https://i.ibb.co/tMhHgzPL/slide-ceremony.jpg" alt="Data e endereço"/>
+        <a href="https://maps.app.goo.gl/23YRbAzrMgmEuXTCA" 
+           target="_blank" class="btn-map">Ver no Maps</a>
       </div>
+      <!-- 3) Celebração -->
+      <div class="swiper-slide">
+        <img src="https://i.ibb.co/mFgRbj3V/slide-celebration.jpg" alt="Celebração"/>
+        <a href="https://maps.app.goo.gl/PfLV5FxpyYmEaeTd8" 
+           target="_blank" class="btn-map">Ver no Maps</a>
+      </div>
+      <!-- 4) Manual dos Padrinhos #2 -->
+      <div class="swiper-slide">
+        <img src="https://i.ibb.co/JSWkcSX/Convite-Quadrado-Manual-dos-Padrinhos-Casamento-Aquarela-Sofisticado-Branco-e-Verde-2.jpg" 
+             alt="Manual dos Padrinhos 2"/>
+      </div>
+      <!-- 5) Manual dos Padrinhos #3 -->
+      <div class="swiper-slide">
+        <img src="https://i.ibb.co/qMWMmXwV/Convite-Quadrado-Manual-dos-Padrinhos-Casamento-Aquarela-Sofisticado-Branco-e-Verde-3.jpg" 
+             alt="Manual dos Padrinhos 3"/>
+      </div>
+      <!-- 6) Manual dos Padrinhos #4 -->
+      <div class="swiper-slide">
+        <img src="https://i.ibb.co/4H6yws2/Convite-Quadrado-Manual-dos-Padrinhos-Casamento-Aquarela-Sofisticado-Branco-e-Verde-4.jpg" 
+             alt="Manual dos Padrinhos 4"/>
+      </div>
+      <!-- 7) Manual dos Padrinhos #5 -->
+      <div class="swiper-slide">
+        <img src="https://i.ibb.co/nMJn49Mz/Convite-Quadrado-Manual-dos-Padrinhos-Casamento-Aquarela-Sofisticado-Branco-e-Verde-5.jpg" 
+             alt="Manual dos Padrinhos 5"/>
+      </div>
+      <!-- 8) Confirme sua presença (RSVP) -->
       <div class="swiper-slide rsvp-slide">
         <h2>Confirme sua presença</h2>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdmDrisciQXYKm7U-cnGWIkF5oG5ngSTXQGgj6JAHfdWHOcUA/viewform?embedded=true"></iframe>
+        <div class="iframe-container">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdmDrisciQXYKm7U-cnGWIkF5oG5ngSTXQGgj6JAHfdWHOcUA/viewform?embedded=true"
+                  scrolling="yes"></iframe>
+        </div>
         <div id="go-gifts" class="btn-gifts">Seguir para Presentes</div>
       </div>
-      <div class="swiper-slide"><img src="https://i.ibb.co/9mMjL7Ss/slide-gifts.jpg" alt="Lista de Presentes"/>
-        <a class="btn-map" href="https://listas.casasbahia.com.br/matheusepriscila" target="_blank">Lista de Presentes</a>
+      <!-- 9) Lista de Presentes -->
+      <div class="swiper-slide">
+        <img src="https://i.ibb.co/9mMjL7Ss/slide-gifts.jpg" alt="Lista de Presentes"/>
+        <a href="https://listas.casasbahia.com.br/matheusepriscila" 
+           target="_blank" class="btn-map">Lista de Presentes</a>
       </div>
     </div>
-    <div class="swiper-button-next"></div>
+    
+    <!-- Controles do Swiper -->
     <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
   </div>
-
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
 </html>
