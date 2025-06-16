@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=3,user-scalable=yes"/>
+  <title>Convite Interativo</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="balloons"></div>
+
+  <audio id="bg-music"
+         src="https://cdn.pixabay.com/download/audio/2023/07/18/audio_f12da6e88f.mp3?filename=romantic-piano-123906.mp3"
+         loop preload="auto"></audio>
+
+  <img id="capa"
+       src="https://i.ibb.co/ZpRxVt5n/Copilot-20250616-090014.png"
+       alt="Envelope fechado – toque para abrir"/>
+
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="https://i.ibb.co/5WrCP6JT/slide-date.jpg" alt="Matheus e Priscila"/></div>
+      <div class="swiper-slide"><img src="https://i.ibb.co/tMhHgzPL/slide-ceremony.jpg" alt="Data e endereço"/>
+        <a class="btn-map" href="https://maps.app.goo.gl/23YRbAzrMgmEuXTCA" target="_blank">Ver no Maps</a>
+      </div>
+      <div class="swiper-slide"><img src="https://i.ibb.co/mFgRbj3V/slide-celebration.jpg" alt="Celebração"/>
+        <a class="btn-map" href="https://maps.app.goo.gl/PfLV5FxpyYmEaeTd8" target="_blank">Ver no Maps</a>
+      </div>
+      <div class="swiper-slide rsvp-slide">
+        <h2>Confirme sua presença</h2>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdmDrisciQXYKm7U-cnGWIkF5oG5ngSTXQGgj6JAHfdWHOcUA/viewform?embedded=true"></iframe>
+        <div id="go-gifts" class="btn-gifts">Seguir para Presentes</div>
+      </div>
+      <div class="swiper-slide"><img src="https://i.ibb.co/9mMjL7Ss/slide-gifts.jpg" alt="Lista de Presentes"/>
+        <a class="btn-map" href="https://listas.casasbahia.com.br/matheusepriscila" target="_blank">Lista de Presentes</a>
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</body>
+</html>
